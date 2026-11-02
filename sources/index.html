@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<title>
+            None -
+            Sources
+        </title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+<link href="../clld-static/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="../clld-static/css/leaflet.css" rel="stylesheet"/>
+<link href="../clld-static/css/leaflet.fullscreen.css" rel="stylesheet"/>
+<link href="../clld-static/css/L.Control.Resizer.css" rel="stylesheet"/>
+<link href="../clld-static/css/clld.css" rel="stylesheet"/>
+<link href="../clld-static/css/jqtree.css" rel="stylesheet"/>
+<link href="../clld-static/css/hint.css" rel="stylesheet"/>
+<link href="../clld-static/css/jquery.dataTables.css" rel="stylesheet"/>
+<link href="../clld-static/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../clld-static/css/bootstrap-responsive.min.css" rel="stylesheet"/>
+<link href="../static/project.css" rel="stylesheet"/>
+<script src="../clld-static/js/jquery.js"></script>
+<script src="../clld-static/js/leaflet.js"></script>
+<script src="../clld-static/js/Leaflet.fullscreen.js"></script>
+<script src="../clld-static/js/bootstrap.min.js"></script>
+<script src="../clld-static/js/jquery.dataTables.min.js"></script>
+<script src="../clld-static/js/oms.min.js"></script>
+<script src="../clld-static/js/bootstrapx-clickover.js"></script>
+<script src="../clld-static/js/tree.jquery.js"></script>
+<script src="../clld-static/js/leaflet-providers.js"></script>
+<script src="../clld-static/js/leaflet-hash.js"></script>
+<script src="../clld-static/js/L.Control.Resizer.js"></script>
+<script src="../clld-static/js/clld.js"></script>
+<script src="../static/project.js"></script>
+<link href="../unapi/" rel="unapi-server" title="unAPI" type="application/xml"/>
+<script src="../_js"></script>
+</head>
+<body id="r-sources">
+<div class="navbar navbar-static-top" id="top">
+<div class="navbar-inner">
+<div class="container-fluid">
+<a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</a>
+<div class="nav-collapse collapse">
+<ul class="nav">
+<li class="" id="menuitem_dataset">
+<a href="../" title="Home">Home</a>
+</li>
+<li class="" id="menuitem_frames">
+<a href="../frames/" title="Frames">Frames</a>
+</li>
+<li class="" id="menuitem_languages">
+<a href="../languages/" title="Languages">Languages</a>
+</li>
+<li class="active" id="menuitem_sources">
+<a href="./" title="Sources">Sources</a>
+</li>
+</ul>
+</div><!--/.nav-collapse -->
+</div>
+</div>
+</div>
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span12">
+<h2>Sources</h2>
+<div>
+<table aria-describedby="StaticSources_info" border="0" cellpadding="0" cellspacing="0" class="table table-bordered order-column compact stripe no-footer" id="StaticSources" role="grid">
+<thead>
+<tr role="row"><th aria-label="Details" class="center sorting_asc" colspan="1" rowspan="1">Details</th><th aria-controls="StaticSources" aria-label="Name: activate to sort column ascending" class="" colspan="1" rowspan="1" tabindex="0">Name</th><th aria-controls="StaticSources" aria-label="Title: activate to sort column ascending" class="" colspan="1" rowspan="1" tabindex="0">Title</th><th aria-controls="StaticSources" aria-label="Year: activate to sort column ascending" class="" colspan="1" rowspan="1" tabindex="0">Year</th><th aria-controls="StaticSources" aria-label="Author: activate to sort column ascending" class="" colspan="1" rowspan="1" tabindex="0">Author</th><th aria-controls="StaticSources" aria-label="BibTeX type: activate to sort column ascending" class="" colspan="1" rowspan="1" tabindex="0">BibTeX type</th></tr>
+</thead>
+<thead>
+<tr>
+<th style="text-align: left;">
+<input class="search_init control" id="dt-filter-d" name="d" style="display: none;" type="text" value=""/>
+</th>
+<th style="text-align: left;">
+<input class="input-small control" id="dt-filter-name" name="name" placeholder="Search" type="text" value=""/>
+</th>
+<th style="text-align: left;">
+<input class="input-small control" id="dt-filter-description" name="description" placeholder="Search" type="text" value=""/>
+</th>
+<th style="text-align: left;">
+<input class="input-small control" id="dt-filter-year" name="year" placeholder="Search" type="text" value=""/>
+</th>
+<th style="text-align: left;">
+<input class="input-small control" id="dt-filter-author" name="author" placeholder="Search" type="text" value=""/>
+</th>
+<th style="text-align: left;">
+<select class="select control input-small" id="dt-filter-bibtex_type" name="bibtex_type">
+<option value="">--any--</option>
+<option value="article">article</option>
+<option value="book">book</option>
+<option value="booklet">booklet</option>
+<option value="conference">conference</option>
+<option value="inbook">inbook</option>
+<option value="incollection">incollection</option>
+<option value="inproceedings">inproceedings</option>
+<option value="manual">manual</option>
+<option value="mastersthesis">mastersthesis</option>
+<option value="misc">misc</option>
+<option value="phdthesis">phdthesis</option>
+<option value="proceedings">proceedings</option>
+<option value="techreport">techreport</option>
+<option value="unpublished">unpublished</option>
+</select>
+</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<script>
+$(document).ready(function() {
+    CLLD.DataTable.init("StaticSources", "<div class=\"btn-group\"><button class=\"btn btn-info dl-widget-IIndex\" data-content=\"&lt;div&gt;&lt;dl&gt;&lt;p&gt;Columns containing numeric data may be filtered giving an upper and/or lower bound in the form &amp;#34;&amp;lt;5&amp;#34; or a range in the form &amp;#34;-2..20&amp;#34;.&lt;/p&gt;&lt;/dl&gt;&lt;/div&gt;\" type=\"button\"><i class=\"icon-info-sign icon-white\"></i></button><button class=\"btn\" href=\"#\" id=\"StaticSources-bib-download\" onclick=\"document.location.href = CLLD.DataTable.current_url(&#34;StaticSources&#34;, &#34;bib&#34;); return false;\" tite=\"Download items in the table formatted as BibTeX.\">BibTeX</button></div>", {"language": {"paginate": {"next": "Next", "previous": "Previous", "first": "First", "last": "Last"}, "emptyTable": "No data available in table", "info": "Showing _START_ to _END_ of _TOTAL_ entries", "infoEmpty": "Showing 0 to 0 of 0 entries", "infoFiltered": "(filtered from _MAX_ total entries)", "lengthMenu": "Show _MENU_ entries", "loadingRecords": "Loading...", "processing": "Processing...", "search": "Search:", "zeroRecords": "No matching records found"}, "bServerSide": false, "bProcessing": false, "sDom": "<'dt-before-table row-fluid'<'span4'i><'span6'p><'span2'f<'StaticSources-toolbar'>>r>t<'span4'i><'span6'p>", "bAutoWidth": false, "sPaginationType": "bootstrap", "aoColumns": [{"sName": "d", "sTitle": "Details", "bSearchable": false, "bSortable": false, "sClass": "center", "sType": "html"}, {"sName": "name", "sTitle": "Name"}, {"sName": "description", "sTitle": "Title"}, {"sName": "year", "sTitle": "Year"}, {"sName": "author", "sTitle": "Author"}, {"sName": "bibtex_type", "sTitle": "BibTeX type"}], "iDisplayLength": 100, "aLengthMenu": [[50, 100, 200], [50, 100, 200]], "aaData": []});
+});
+</script>
+<script>    $(document).ready(function() {
+        $('.dl-widget-IIndex').clickover({
+            html: true,
+            title: 'Column information',
+            placement: 'left',
+            trigger: 'click'
+        });
+    });</script>
+</div>
+<script>
+$(function () {
+  function syncTopInfo(api) {
+    var $wrapper = $(api.table().container());
+    var $bottomInfo = $wrapper.find('div.dataTables_info').last();
+    if (!$bottomInfo.length) {
+      return;
+    }
+    var $topInfo = $wrapper.find('div.dataTables_info.top-info');
+    if (!$topInfo.length) {
+      $topInfo = $('<div class="dataTables_info top-info"></div>');
+      var $filter = $wrapper.find('div.dataTables_filter').first();
+      if ($filter.length) {
+        $filter.before($topInfo);
+      } else {
+        $wrapper.prepend($topInfo);
+      }
+    }
+    $topInfo.text($bottomInfo.text());
+  }
+
+  $(document).on('init.dt draw.dt', function (e, settings) {
+    if (settings && settings.oInstance && settings.oInstance.api) {
+      syncTopInfo(settings.oInstance.api());
+    } else if (settings) {
+      syncTopInfo(new $.fn.dataTable.Api(settings));
+    }
+  });
+
+  $('table.js-table-search-sort').each(function () {
+    if ($.fn.DataTable && !$.fn.DataTable.isDataTable(this)) {
+      $(this).DataTable({
+        paging: true,
+        searching: true,
+        ordering: true,
+        autoWidth: false
+      });
+    }
+  });
+});
+</script>
+</div>
+</div>
+<div class="row-fluid">
+<div class="span12">
+<footer>
+<div class="row-fluid" style="padding-top: 15px; border-top: 1px solid black;">
+<div class="span3">
+<a href="" title=", ">
+                                , 
+                            </a>
+</div>
+<div class="span6" style="text-align: center;">
+<a href="http://creativecommons.org/licenses/by/4.0/" rel="license">
+<img alt="License" src="../clld-static/images/cc-by.png" style="border-width:0"/>
+</a>
+<br/>
+<span class="Dataset" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type" xmlns:dct="http://purl.org/dc/terms/"></span>
+                            edited by
+                            <span property="cc:attributionName" rel="cc:attributionURL" xmlns:cc="https://creativecommons.org/ns#">
+</span>
+<br/>
+                            is licensed under a
+                            <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">
+                                Creative Commons Attribution 4.0 International License</a>.
+                        </div>
+<div class="span3" style="text-align: right;">
+<a class="clld-disclaimer" href="../legal/">Disclaimer</a>
+<br/>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</div>
+<div aria-hidden="true" aria-labelledby="ModalLabel" class="modal hide fade" id="Modal" role="dialog" tabindex="-1">
+<div class="modal-header">
+<button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+<h3 id="ModalLabel"></h3>
+</div>
+<div class="modal-body" id="ModalBody">
+</div>
+</div>
+<script>
+</script>
+</body></html>
